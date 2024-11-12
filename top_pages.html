@@ -6,81 +6,43 @@
 </head>
 <body>
 
-<!-- <style>
-    a {color:black; 
-        text-decoration: none; 
+<style>
+    a {color:black;
+        text-decoration: none;
         }
     li {
         margin-bottom: 10px; /* Space between items */
         padding-bottom: 5px; /* Space inside item */
         border-bottom: 1px solid #ccc; /* Line separation */
     }
-    
+
 
 </style>
-<h3 style="font-family:helvetica;">Popular Right Now</h3>
+
+<h3 style="font-family:helvetica;">Trending This Week</h3>
 
 <ol id="myList"></ol>
-<script>
-    function gotTopPages({pages}) {
-        console.log(pages);
-        const isNumeric = (string) => /^[+-]?\d+(\.\d+)?$/.test(string);
-        let n = pages.length;
-        let articles = [];
-        for (let i = 0; i<n; i++){
-            let page = pages[i];
-            let isArticle = isNumeric(page['path'].slice(22,26));
-            if (isArticle){
-                articles.push(page);
-            }
-        }
-            
-        function ensureHttps(url) {
-            if(!url.startsWith('http://') || !url.startsWith('https://')) {
-                return 'https://www.'+url;
-            }
-            return url;
-        }
-        
-        let data = [];
-
-        for (let i = 0; i < articles.length; i++) {
-            if(articles[i]["title"]) {
-                data.push(articles[i]);
-            }
-        }
-
-        const listId = document.getElementById("myList");
-
-        let count = 5;
-
-        for (let i = 0; i < count && articles.length; i++) {
-            const page = data[i];
-            const listItem = document.createElement("li");
-            const link = document.createElement("a");
-
-            link.href = ensureHttps(page["path"])
-            link.textContent = page["title"]
-
-            listItem.appendChild(link);
-            // listItem.style.marginBottom = '10px';
-            listId.appendChild(listItem)
-        }
-        
-    return ;
-    }
-
-    let script = document.createElement('script');
-    script.src = `https://api.chartbeat.com/live/toppages/v3/?apikey=020aee77640283da08f0f091e7bc3c9f&host=uscannenbergmedia.com&jsonp=gotTopPages`;
-    document.body.append(script);
-    
-</script> -->
 
 <script src="data.js"></script>
 <script>
     console.log('blah');
     console.log(data);
-    // console.log(data[0].Name);
+
+    const listId = document.getElementById("myList");
+
+    for (let i = 0; i < data.length; i++) {
+        console.log(i);
+        const page = data[i];
+
+        const listItem = document.createElement("li");
+        const link = document.createElement("a");
+
+        link.href = 'https://' + page['url']
+        link.textContent = page['title']
+
+        listItem.appendChild(link);
+        listId.appendChild(listItem)
+        }
 </script>
 
 
