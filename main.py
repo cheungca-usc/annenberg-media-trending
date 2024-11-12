@@ -55,7 +55,7 @@ def sample_run_report(property_id="YOUR-GA4-PROPERTY-ID"):
     # writing the top_pages to data.js
     json_data = top_pages.to_json(orient='records')
     with open('data.js', 'w') as f:
-        f.write('const data = ' + json_data + ';')
+        f.write('trending(' + json_data + ');')
 
 
 if __name__ == '__main__':

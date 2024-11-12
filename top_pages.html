@@ -23,9 +23,11 @@
 
 <ol id="myList"></ol>
 
-<script src="data.js"></script>
+
+
 <script>
-    console.log('blah');
+
+function trending(data){
     console.log(data);
 
     const listId = document.getElementById("myList");
@@ -43,7 +45,10 @@
         listItem.appendChild(link);
         listId.appendChild(listItem)
         }
+    }
 </script>
+
+<script src="http://18.220.185.24:8000/data.js"></script>
 
 
 </body>
